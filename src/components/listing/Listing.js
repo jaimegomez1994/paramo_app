@@ -51,13 +51,15 @@ const Listing = () => {
                 alt={`${data.pokemon_v2_pokemon.name}`}
                 src={data?.sprites?.length>0?data.sprites:'https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg'}
                 height={300}
-                width={300}></img>
-            <h3>{data.pokemon_v2_pokemon.name}</h3>
+              width={300}></img>
+            <div className='d-flex flex-column align-items-center'>
+              <h3>{data.pokemon_v2_pokemon.name}</h3>
+            </div>
             {showDetail[0] && showDetail[1]=== data.id &&
-                <div>
-                <div>{`Weight ${data.pokemon_v2_pokemon.weight}`}</div>
-                <div>{`Height ${data.pokemon_v2_pokemon.height}`}</div>
-                <div>{`Base Experience ${data.pokemon_v2_pokemon.base_experience}`}</div>
+                <div className='d-flex flex-column align-items-center'>
+                  <div>{`Weight ${data.pokemon_v2_pokemon.weight}`}</div>
+                  <div>{`Height ${data.pokemon_v2_pokemon.height}`}</div>
+                  <div>{`Base Experience ${data.pokemon_v2_pokemon.base_experience}`}</div>
                 </div>
             }
             </div>

@@ -59,8 +59,7 @@ const orderBy = (orderBy) => {
   }
     return (
         <>
-        select
-        <select name="orderBy" id="orderBy" onChange={(e) => orderBy(e.target.value)}>
+        <select className="w-25" name="orderBy" id="orderBy" onChange={(e) => orderBy(e.target.value)}>
         <option value="lowest">Lowest Number</option>
         <option value="highest">Highest Number</option>
         <option value="az">A->Z</option>

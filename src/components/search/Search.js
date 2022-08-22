@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { updatePokemonsToShow, selectPokemonsToShow } from '../listing/pokemonsToShowSlice';
-import { updatePokemons, selectPokemons } from '../container/pokemonsSlice';
-import { updatePokemonToSearch, selectPokemonToShow } from './pokemonToSearchSlice';
-import React, { useCallback, useRef, useState, useEffect } from 'react';
+import { updatePokemonsToShow} from '../listing/pokemonsToShowSlice';
+import { selectPokemons } from '../container/pokemonsSlice';
+import { updatePokemonToSearch } from './pokemonToSearchSlice';
+import React, { useState } from 'react';
 
 const Search = () => {
 
@@ -15,7 +15,6 @@ const Search = () => {
   const onchangePokemon = (e) => {
     setPokemonToSearch(e);
     dispatch(updatePokemonToSearch(e));
-    console.log(e);
     if (e.length > 0) {
       dispatch(updatePokemonsToShow(pokemons.filter(data => data.pokemon_v2_pokemon.name.includes(e))))
     } else {
@@ -23,9 +22,10 @@ const Search = () => {
     }
   }
     
-  return <div>
-    search
+  return <div className=''>
     <input
+      placeholder="search your pokemon!"
+      className='my-3'
       onChange={(e) => onchangePokemon(e.target.value)}
       value={pokemonToSearch}
     ></input>

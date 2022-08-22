@@ -1,5 +1,4 @@
 import Listing from '../listing';
-import data from '../../data.json'
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 import React, { useEffect } from 'react';
 import OrderBy from '../orderBy';
@@ -26,10 +25,6 @@ const Container = () => {
   }, [])
 
   const getPokemonData = async () => {
-    if (1=== 1) {
-        dispatch(updatePokemons(data));
-      dispatch(updatePokemonsToShow(data.slice(0, 19)));
-    } else {
     try {
       console.time('pokeApi');
       const resp= await client
@@ -58,7 +53,6 @@ const Container = () => {
     } catch (error) {
       console.log(error);
     }
-    }
   }
 
   const getCorrectImages = (data) => {
@@ -70,9 +64,11 @@ const Container = () => {
   }
 
   return (
-      <>
-      <Search/>
-      <OrderBy/>
+    <>
+      <div className='d-flex flex-column align-items-center'>
+        <Search/>
+        <OrderBy/>
+      </div>
       <Listing />  
     </>
   );
