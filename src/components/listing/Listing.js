@@ -46,17 +46,21 @@ const Listing = () => {
       <div className='container'>
           { pokemonsToShow && Array.from(pokemonsToShow).length >0 && Array.from(pokemonsToShow).map(data => {
         return (
-            <div key={data.id} onClick={()=>setShowDetail([!showDetail[0],data.id])}>
+          <div
+            key={data.id}
+            onClick={() => setShowDetail([!showDetail[0], data.id])}
+            className="d-flex flex-column align-items-center"
+          >
             <img
                 alt={`${data.pokemon_v2_pokemon.name}`}
                 src={data?.sprites?.length>0?data.sprites:'https://www.ncenet.com/wp-content/uploads/2020/04/No-image-found.jpg'}
                 height={300}
               width={300}></img>
-            <div className='d-flex flex-column align-items-center'>
+            <div>
               <h3>{data.pokemon_v2_pokemon.name}</h3>
             </div>
             {showDetail[0] && showDetail[1]=== data.id &&
-                <div className='d-flex flex-column align-items-center'>
+                <div >
                   <div>{`Weight ${data.pokemon_v2_pokemon.weight}`}</div>
                   <div>{`Height ${data.pokemon_v2_pokemon.height}`}</div>
                   <div>{`Base Experience ${data.pokemon_v2_pokemon.base_experience}`}</div>
