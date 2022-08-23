@@ -70,7 +70,11 @@ const Listing = () => {
         )
         })}
       </div>
-        <div ref={bottom} >LOADING</div>
+        <div ref={bottom} >
+          {!pokemonToSearch && <div className="mt-5 d-flex flex-column align-items-center" >
+            Scroll down to infinite scrolling!
+          </div>}
+        </div>
       </>
     )
 }
